@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 93%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 93%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 93%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 70%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 100%;
+
+    --radius: 0px;
+
+    --glow: 0 0% 100%;
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 6px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(0 0% 8% / 0.7);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(0 0% 18%);
+  }
+
+  .glass-strong {
+    background: hsl(0 0% 8% / 0.9);
+    backdrop-filter: blur(40px);
+    border: 1px solid hsl(0 0% 20%);
+  }
+
+  .glow-border {
+    border: 1px solid hsl(0 0% 25%);
+  }
+
+  .glow-border-hover {
+    border-color: hsl(0 0% 40%);
+  }
+
+  .text-glow {
+    text-shadow: none;
+  }
+
+  .card-lift {
+    box-shadow: 0 8px 32px hsl(0 0% 0% / 0.5);
+  }
+
+  /* ═══ Modern Card Styles ═══ */
+  .card-border-gradient {
+    background: hsl(0 0% 18%);
+  }
+
+  .card-border-gradient-bright {
+    background: linear-gradient(
+      180deg,
+      hsl(0 0% 30%) 0%,
+      hsl(0 0% 15%) 100%
+    );
+  }
+
+  .card-frame {
+    border-radius: 0;
+    position: relative;
+  }
+
+  .card-glow {
+    box-shadow: 0 20px 40px hsl(0 0% 0% / 0.5);
+  }
+
+  .card-image-area {
+    background: hsl(0 0% 6%);
+    border: 1px solid hsl(0 0% 15%);
+  }
+
+  .card-shine {
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      hsl(0 0% 100% / 0.03) 45%,
+      transparent 60%
+    );
+    transition: opacity 0.7s ease;
+  }
+
+  .game-card {
+    perspective: 600px;
+  }
+
+  .game-card:hover .card-frame {
+    transform: translateY(-4px);
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-10px, -40px) scale(0.95); }
+  75% { transform: translate(-30px, -10px) scale(1.02); }
+}
